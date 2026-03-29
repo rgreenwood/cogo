@@ -21,7 +21,7 @@ Examples:
 + `N45°27'18"E  -  145.2718`
 + `S05°12'38"E  -  205.1238` (note that 5 degrees is entered as "05")
 + `S19°02'44"W  -  319.0244` (note that 2 minutes is entered as "02")
-+ `N79°55'12"W  -  479.5512`
++ `N79°55'"W    -  479.55  ` (seconds are not required)
 
 For curves, the bearing is the chord bearing, the distance is the chord bearing and the arc radius and direction are required. If you do not have all of the necessary curve components the missing one can be calculated from the curve calculator at [https://greenwoodmap.com/tools/](https://greenwoodmap.com/tools/curve1.html)
 
