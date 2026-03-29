@@ -1,0 +1,20 @@
+# Mandatory items:
+[general]
+name=Greenwood CoGo Plugin
+qgisMinimumVersion=3.0
+qgisMaximumVersion=3.99
+description=Draws lines from bearings and distances
+about=This plugin is a modification of the "Azimuth and Distance Plugin" (https://github.com/mpetroff/qgsazimuth). It adds shorthand bearing entry uses less screen space.
+version=3.0.0
+author=Mauricio de Paulo, Fred Laplante, DMS Australia, TechnoglogyOne, Matthew Petroff, Rich Greenwood
+homepage=https://greenwoodmap.com/tools/
+email=rich@greenwoodmap.com
+
+# Optional items:
+icon=qgsazimuth.png
+experimental=False
+deprecated=False
+# repository=https://github.com/mpetroff/qgsazimuth
+# tracker=https://github.com/mpetroff/qgsazimuth/issues
+changelog=
+    Version 3.0.0 modification of the "Azimuth and Distance Plugin" for QGIS 3.x
