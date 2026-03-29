@@ -8,7 +8,7 @@ This plugin:
 + adds shorthand bearing entry that can be done entirely on a 10-key number pad
 + uses less screen space than qgsazimuth
 
-Bearings start from either the north or south followed by an angle to the east or west. For example: **N45°27'18"E**. The shorthand entry is numeric: QDD.MMSS where:
+Bearings start from either the north or south followed by an angle to the east or west. For example: **N45°27'18"E**. The shorthand entry is numeric: **QDD.MMSS** where:
 
 + Q is the quadrant, 1=NE, 2=SE, 3=SW, 4=NW
 + DD is degrees (must be 2 digits)
@@ -18,10 +18,10 @@ Bearings start from either the north or south followed by an angle to the east o
 
 Examples:
 
-+ N45°27'18"E  -  145.2718
-+ S05°12'38"E  -  205.1238 (note that 5 degrees is entered as "05")
-+ S19°02'44"W  -  319.0244 (note that 2 minutes is entered as "02")
-+ N79°55'12"W  -  479.5512
++ `N45°27'18"E  -  145.2718`
++ `S05°12'38"E  -  205.1238` (note that 5 degrees is entered as "05")
++ `S19°02'44"W  -  319.0244` (note that 2 minutes is entered as "02")
++ `N79°55'12"W  -  479.5512`
 
 For curves, the bearing is the chord bearing, the distance is the chord bearing and the arc radius and direction are required. If you do not have all of the necessary curve components the missing one can be calculated from the curve calculator at [https://greenwoodmap.com/tools/](https://greenwoodmap.com/tools/curve1.html)
 
