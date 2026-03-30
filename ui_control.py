@@ -1,9 +1,5 @@
 from qgis.PyQt.QtCore import pyqtSignal
 from qgis.PyQt.QtWidgets import QWidget, QDockWidget, QApplication
-# rwg
-from qgis.PyQt.Qt import Qt  # from PyQt5.Qt import Qt
-# from pprint import pprint
-
 
 from .dock import Ui_Form
 
@@ -45,4 +41,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     c = Dock(None)
     c.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())

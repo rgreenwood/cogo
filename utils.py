@@ -136,7 +136,8 @@ def points_on_arc(count, center, radius, start, end):
 def dmsToDd(dms):
     "It's not fast, but it's a safe way of dealing with DMS"
     # dms=dms.replace(" ", "")
-    if isinstance(dms, float):
+    # if isinstance(dms, float):
+    if isinstance(dms, (int, float)):
         return dms
     for c in dms:
         if (not c.isdigit()) and (c != ".") and (c != "-"):
