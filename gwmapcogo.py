@@ -36,9 +36,9 @@ from .maptool import LineTool
 from . import utils
 
 
-class qgsazimuth(object):
+class gwmapcogo(object):
     """
-    Base class for the qgsAzimuth plugin
+    Base class for the gwmapcogo plugin
     - Provides a means to draw a feature by specifying the angle and distance beetween points.
     - Supports angles in either the conventional 0.0 - 360.0 clockwise from North
         or the surveyor's 'Easting' system with bearings plus or minus 90 deg. from North or South
@@ -64,10 +64,10 @@ class qgsazimuth(object):
         # create action that will start plugin configuration
         self.action = QAction(
             QIcon(":icons/qgsazimuth.png"),
-            "Azimuth and distance",
+            "Bearing and distance",
             self.iface.mainWindow(),
         )
-        self.action.setWhatsThis("Azimuth and distance")
+        self.action.setWhatsThis("Bearing and distance")
         self.action.triggered.connect(self.run)
 
         self.bandpoint = QgsRubberBand(self.canvas, QgsWkbTypes.PointGeometry)
@@ -1131,29 +1131,29 @@ class qgsazimuth(object):
     # ------------------------
     def loadConf(self):
         settings = QSettings()
-        size = settings.value("/Plugin-qgsAzimuth/size", QSize(800, 600), type=QSize)
+        size = settings.value("/Plugin-gwmapcogo/size", QSize(800, 600), type=QSize)
         position = settings.value(
-            "/Plugin-qgsAzimuth/position", QPoint(0, 10), type=QPoint
+            "/Plugin-gwmapcogo/position", QPoint(0, 10), type=QPoint
         )
-        self.fPath = settings.value("/Plugin-qgsAzimuth/inp_exp_dir", "", type=str)
-        self.angletype = settings.value("/Plugin-qgsAzimuth/angletype", "", type=str)
+        self.fPath = settings.value("/Plugin-gwmapcogo/inp_exp_dir", "", type=str)
+        self.angletype = settings.value("/Plugin-gwmapcogo/angletype", "", type=str)
 
         self.should_open_form = settings.value(
-            "/Plugin-qgsAzimuth/open_form", True, type=bool
+            "/Plugin-gwmapcogo/open_form", True, type=bool
         )
-        self.surverytype = settings.value("/Plugin-qgsAzimuth/type", "", type=str)
-        self.northtype = settings.value("/Plugin-qgsAzimuth/northtype", "", type=str)
+        self.surverytype = settings.value("/Plugin-gwmapcogo/type", "", type=str)
+        self.northtype = settings.value("/Plugin-gwmapcogo/northtype", "", type=str)
         self.mag_dev = settings.value(
-            "/Plugin-qgsAzimuth/northtype_value", 0.0, type=float
+            "/Plugin-gwmapcogo/northtype_value", 0.0, type=float
         )
         self.distanceunits = settings.value(
-            "/Plugin-qgsAzimuth/distanceunits", "", type=str
+            "/Plugin-gwmapcogo/distanceunits", "", type=str
         )
-        self.angleunit = settings.value("/Plugin-qgsAzimuth/angleunit", "", type=str)
+        self.angleunit = settings.value("/Plugin-gwmapcogo/angleunit", "", type=str)
         if self.angleunit == "gradian":
             self.pluginGui.lineEdit_nextVertical.setText("100")
-        self.angletype = settings.value("/Plugin-qgsAzimuth/angletype", "", type=str)
-        self.arc_count = settings.value("/Plugin-qgsAzimuth/arcpoints", 6, type=int)
+        self.angletype = settings.value("/Plugin-gwmapcogo/angletype", "", type=str)
+        self.arc_count = settings.value("/Plugin-gwmapcogo/arcpoints", 6, type=int)
 
         self.pluginGui.resize(size)
         self.pluginGui.move(position)
@@ -1163,17 +1163,17 @@ class qgsazimuth(object):
     def saveConf(self):
         settings = QSettings()
         # settings.setValue("Geometry", self.saveGeometry())
-        settings.setValue("/Plugin-qgsAzimuth/size", self.pluginGui.size())
-        settings.setValue("/Plugin-qgsAzimuth/position", self.pluginGui.pos())
-        settings.setValue("/Plugin-qgsAzimuth/inp_exp_dir", self.fPath)
-        settings.setValue("/Plugin-qgsAzimuth/open_form", self.should_open_form)
-        settings.setValue("/Plugin-qgsAzimuth/type", self.surveytype)
-        settings.setValue("/Plugin-qgsAzimuth/northtype", self.northtype)
-        settings.setValue("/Plugin-qgsAzimuth/northtype_value", self.mag_dev)
-        settings.setValue("/Plugin-qgsAzimuth/distanceunits", self.distanceunits)
-        settings.setValue("/Plugin-qgsAzimuth/angleunit", self.angleunit)
-        settings.setValue("/Plugin-qgsAzimuth/angletype", self.angletype)
-        settings.setValue("/Plugin-qgsAzimuth/arcpoints", self.arc_count)
+        settings.setValue("/Plugin-gwmapcogo/size", self.pluginGui.size())
+        settings.setValue("/Plugin-gwmapcogo/position", self.pluginGui.pos())
+        settings.setValue("/Plugin-gwmapcogo/inp_exp_dir", self.fPath)
+        settings.setValue("/Plugin-gwmapcogo/open_form", self.should_open_form)
+        settings.setValue("/Plugin-gwmapcogo/type", self.surveytype)
+        settings.setValue("/Plugin-gwmapcogo/northtype", self.northtype)
+        settings.setValue("/Plugin-gwmapcogo/northtype_value", self.mag_dev)
+        settings.setValue("/Plugin-gwmapcogo/distanceunits", self.distanceunits)
+        settings.setValue("/Plugin-gwmapcogo/angleunit", self.angleunit)
+        settings.setValue("/Plugin-gwmapcogo/angletype", self.angletype)
+        settings.setValue("/Plugin-gwmapcogo/arcpoints", self.arc_count)
 
     def sortedDict(self, adict):
         keys = list(adict.keys())

@@ -11,11 +11,11 @@ homepage=https://greenwoodmap.com/tools/
 email=rich@greenwoodmap.com
 
 # Optional items:
-icon=qgsazimuth.png
+icon=favicon.png
 experimental=False
 deprecated=False
-tags=cogo, bearing, distance, deeds, surveying, land records
+tags=cogo, bearing, distance, deeds, surveying, traverse, land records
 repository=https://github.com/rgreenwood/cogo
 tracker=https://github.com/rgreenwood/cogo/issues
 changelog=
-    Version 3.0.0 modification of the "Azimuth and Distance Plugin" for QGIS 3.x
+    Version 3.0.0 modification of the "Azimuth and Distance Plugin"
