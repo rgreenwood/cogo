@@ -5,9 +5,9 @@ qgisMinimumVersion=4.0
 qgisMaximumVersion=4.99
 description=Draws lines from bearings and distances
 about=This plugin is a modification of the "Azimuth and Distance Plugin" (https://github.com/mpetroff/qgsazimuth). It adds shorthand bearing entry uses less screen space.
-version=4.0.0
+version=3.0.2
 author=Mauricio de Paulo, Fred Laplante, DMS Australia, TechnoglogyOne, Matthew Petroff, Rich Greenwood
-homepage=https://greenwoodmap.com/tools/
+homepage=https://github.com/rgreenwood/gwmapCogo
 email=rich@greenwoodmap.com
 
 # Optional items:
@@ -15,7 +15,7 @@ icon=favicon.png
 experimental=False
 deprecated=False
 tags=cogo, bearing, distance, deeds, surveying, traverse, land records
-repository=https://github.com/rgreenwood/cogo
-tracker=https://github.com/rgreenwood/cogo/issues
+repository=https://github.com/rgreenwood/gwmapCogo/
+tracker=https://github.com/rgreenwood/gwmapCogo/issues
 changelog=
     Version 4.0.0 updates for QGIS 4.x
