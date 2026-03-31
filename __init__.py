@@ -14,3 +14,4 @@ from .gwmapcogo import gwmapcogo
 
 def classFactory(iface):
     return gwmapcogo(iface)
+
