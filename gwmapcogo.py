@@ -72,7 +72,7 @@ class gwmapcogo(object):
     def initGui(self):
         # create action that will start plugin configuration
         self.action = QAction(
-            QIcon(os.path.join(os.path.dirname(__file__), "favicon.png")),
+            QIcon(os.path.join(os.path.dirname(__file__), "trav.png")),
             "Bearing and distance",
             self.iface.mainWindow(),
         )
