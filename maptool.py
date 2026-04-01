@@ -3,6 +3,7 @@ from qgis.PyQt.QtGui import QCursor, QPixmap
 from qgis.core import Qgis, QgsGeometry, QgsWkbTypes
 from qgis.gui import QgsMapTool, QgsRubberBand, QgsVertexMarker
 
+from .compat import qgs_geometry_type, qt_global_color
 
 class LineTool(QgsMapTool):
     """
@@ -20,9 +21,9 @@ class LineTool(QgsMapTool):
         self.p1 = None
         self.p2 = None
 
-        self.band = QgsRubberBand(canvas, QgsWkbTypes.GeometryType.LineGeometry)
+        self.band = QgsRubberBand(canvas, qgs_geometry_type("LineGeometry"))
         self.band.setWidth(3)
-        self.band.setColor(Qt.GlobalColor.red)
+        self.band.setColor(qt_global_color("red"))
         self.cursor = QCursor(
             QPixmap(
                 [
@@ -59,7 +60,7 @@ class LineTool(QgsMapTool):
         if not self.m1:
             self.m1 = QgsVertexMarker(self.canvas())
             self.m1.setIconType(1)
-            self.m1.setColor(Qt.GlobalColor.blue)
+            self.m1.setColor(qt_global_color("blue"))
             self.m1.setIconSize(6)
             self.m1.setPenWidth(3)
             self.m1.setCenter(point)
@@ -69,7 +70,7 @@ class LineTool(QgsMapTool):
         if not self.m2:
             self.m2 = QgsVertexMarker(self.canvas())
             self.m2.setIconType(1)
-            self.m2.setColor(Qt.GlobalColor.red)
+            self.m2.setColor(qt_global_color("red"))
             self.m2.setIconSize(6)
             self.m2.setPenWidth(3)
             self.m2.setCenter(point)

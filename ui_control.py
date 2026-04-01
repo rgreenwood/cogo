@@ -1,10 +1,19 @@
+import os
+
+from qgis.PyQt import uic
 from qgis.PyQt.QtCore import pyqtSignal
 from qgis.PyQt.QtWidgets import QWidget, QDockWidget, QApplication
 
-from .dock import Ui_Form
+from .compat import exec_app
+from . import resources_rc
 
 
-class Widget(QWidget, Ui_Form):
+FORM_CLASS, _ = uic.loadUiType(
+    os.path.join(os.path.dirname(__file__), "dock.ui")
+)
+
+
+class Widget(QWidget, FORM_CLASS):
     def __init__(self, parent):
         QWidget.__init__(self, parent)
         self.setupUi(self)
@@ -41,4 +50,4 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     c = Dock(None)
     c.show()
-    sys.exit(app.exec())
+    sys.exit(exec_app(app))

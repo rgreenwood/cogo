@@ -28,6 +28,16 @@ from qgis.PyQt.QtGui import QIcon, QColor
 from qgis.core import *
 
 from .ui_control import Dock
+from . import resources_rc
+from .compat import (
+    exec_dialog,
+    qgs_attribute_editor_mode,
+    qgs_geometry_type,
+    qgs_rubberband_icon,
+    qt_dock_widget_area,
+    qt_global_color,
+    qt_pen_style,
+)
 from math import *
 from .getcoordtool import *
 from .maptool import LineTool
@@ -69,8 +79,8 @@ class gwmapcogo(object):
         self.action.setWhatsThis("Bearing and distance")
         self.action.triggered.connect(self.run)
 
-        self.bandpoint = QgsRubberBand(self.canvas, QgsWkbTypes.GeometryType.PointGeometry)
-        self.bandpoint.setIcon(QgsRubberBand.IconType.ICON_CROSS)
+        self.bandpoint = QgsRubberBand(self.canvas, qgs_geometry_type("PointGeometry"))
+        self.bandpoint.setIcon(qgs_rubberband_icon("ICON_CROSS"))
         self.bandpoint.setColor(QColor.fromRgb(255, 50, 255))
         self.bandpoint.setWidth(3)
         self.bandpoint.setIconSize(20)
@@ -80,7 +90,7 @@ class gwmapcogo(object):
         self.iface.addToolBarIcon(self.action)
 
         self.dock = Dock(self.iface.mainWindow())
-        self.iface.addDockWidget(Qt.DockWidgetArea.BottomDockWidgetArea, self.dock)
+        self.iface.addDockWidget(qt_dock_widget_area("BottomDockWidgetArea"), self.dock)
         self.dock.hide()
         self.pluginGui = self.dock.widget()
 
@@ -334,9 +344,9 @@ class gwmapcogo(object):
         for feature in featurelist:
             band = QgsRubberBand(self.iface.mapCanvas())
             if hasattr(band, "setLineStyle"):
-                band.setLineStyle(Qt.PenStyle.DotLine)
+                band.setLineStyle(qt_pen_style("DotLine"))
             band.setWidth(4)
-            band.setColor(Qt.GlobalColor.darkMagenta)
+            band.setColor(qt_global_color("darkMagenta"))
             band.setToGeometry(feature.geometry(), vectorlayer)
             band.show()
             self.bands.append(band)
@@ -362,8 +372,8 @@ class gwmapcogo(object):
         for feature in featurelist:
             if self.should_open_form:
                 form = self.iface.getFeatureForm(vectorlayer, feature)
-                form.setMode(QgsAttributeEditorContext.Mode.AddFeatureMode)
-                if not form.exec():
+                form.setMode(qgs_attribute_editor_mode("AddFeatureMode"))
+                if not exec_dialog(form):
                     continue
             else:
                 print(feature.isValid())
@@ -673,11 +683,11 @@ class gwmapcogo(object):
 
         featurelist = []
         geometrytype = vectorlayer.geometryType()
-        if geometrytype == QgsWkbTypes.GeometryType.PointGeometry:
+        if geometrytype == qgs_geometry_type("PointGeometry"):
             points = utils.to_qgspoints(vlist)
             features = utils.createpoints(points)
             featurelist.extend(features)
-        elif geometrytype == QgsWkbTypes.GeometryType.LineGeometry:
+        elif geometrytype == qgs_geometry_type("LineGeometry"):
             if as_segments:
                 # If the line is to be draw as segments then we loop the pairs and create a line for each one.
                 points_to_join = []
@@ -716,7 +726,7 @@ class gwmapcogo(object):
                 )
                 feature = utils.createline(pointlist)
                 featurelist.append(feature)
-        elif geometrytype == QgsWkbTypes.GeometryType.PolygonGeometry:
+        elif geometrytype == qgs_geometry_type("PolygonGeometry"):
             polygon = utils.to_qgspoints(vlist)
             feature = utils.createpolygon([polygon])
             if feature:
