@@ -8,14 +8,9 @@ This plugin:
 
 **Installation**
 
-This plugin is not in the official QGIS plugin registry (yet) but can be downloaded from github.
-
-+ for [QGIS 3.x](https://github.com/rgreenwood/gwmapCogo/archive/refs/heads/main.zip)
-+ for [QGIS 4.x](https://github.com/rgreenwood/gwmapCogo/archive/refs/heads/qgis4.zip)
-
-Then in QGIS:<br>
+This plugin is not in the official QGIS plugin registry (yet) but can be downloaded from [github](https://github.com/rgreenwood/gwmapCogo/archive/refs/heads/gwmapCogo.zip). Then in QGIS:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;*Plugins -> Manage and Install Plugins... -> Install from ZIP*<br>
-Select the zip file that was downloaded from the link above.
+Select the downloaded zip file.
 
 
 **Usage**
