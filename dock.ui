@@ -637,7 +637,7 @@
             </property>
             <column>
              <property name="text">
-              <string>Azimuth</string>
+              <string>Bearing</string>
              </property>
             </column>
             <column>
