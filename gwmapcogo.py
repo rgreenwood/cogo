@@ -1144,13 +1144,15 @@ class gwmapcogo(object):
         position = settings.value(
             "/Plugin-gwmapcogo/position", QPoint(0, 10), type=QPoint
         )
+        if position is None:
+            position = QPoint(0, 0) # QPoint(0, 0) gets cast to NULL
         self.fPath = settings.value("/Plugin-gwmapcogo/inp_exp_dir", "", type=str)
         self.angletype = settings.value("/Plugin-gwmapcogo/angletype", "", type=str)
 
         self.should_open_form = settings.value(
             "/Plugin-gwmapcogo/open_form", True, type=bool
         )
-        self.surverytype = settings.value("/Plugin-gwmapcogo/type", "", type=str)
+        self.surveytype = settings.value("/Plugin-gwmapcogo/type", "", type=str)
         self.northtype = settings.value("/Plugin-gwmapcogo/northtype", "", type=str)
         self.mag_dev = settings.value(
             "/Plugin-gwmapcogo/northtype_value", 0.0, type=float
